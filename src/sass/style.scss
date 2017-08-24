@@ -1,0 +1,463 @@
+	@import "includes/base";
+
+// Grid settings
+$number-of-columns: 12;
+$default-column-width: 5.701754 / 100;
+$default-column-margin: 2.631579 / 100;
+$content-max-width: 1170px; // That's where fluid becomes fixed
+$content-min-width: 936px; // That's where fluid becomes fixed
+$base-vertical-margin: 20px; // The mother of all margins. Usually = base line height
+$base-horizontal-margin: $base-vertical-margin; // Usually equal vertical margin, but can be customized
+
+$bm: $base-vertical-margin; // Shortcut
+
+// Media queries
+$media-desktop: "screen and (max-width: 1210px)"; // 1024-1280
+$media-desk: "screen and (max-width: 1279px)"; // 1024-1280
+$media-tablet: "screen and (max-width: 1023px)"; // 768-1024
+$media-phone-landscape: "screen and (max-width: 767px)"; // 480-767 (large phones included, ipad vertical - not)
+$media-phone: "screen and (max-width: 479px)"; // 320-479 (iphone 4 landscape not included)
+$media-retina: "screen and (min-device-pixel-ratio: 1.5) and (min-width: 1024px), screen and (-webkit-min-device-pixel-ratio: 1.5) and (min-width: 1024px)";
+
+$media-mobile: $media-phone-landscape;
+$media-not-mobile: "screen and (min-width: 768px)";
+
+$header-height: 72px;
+
+$color-red: #eb212e;
+$color-blue: #00B4FF;
+$color-green: #6ADE3D;
+$color-orange: #FFC104;
+
+@import "includes/grid";
+
+
+@mixin font-heavy {
+	font-family: "fira-sans-2", sans-serif;
+	font-weight: 700
+}
+@mixin font-regular {
+	font-family: "fira-sans-2", sans-serif;
+	font-weight: 600
+}
+@mixin font-medium {
+	font-family: "fira-sans", sans-serif;
+	font-weight: 500
+}
+@mixin clearfix {
+	&:after {
+		content: '';
+		display: block;
+		clear: both;
+	}
+}
+@mixin margin($val: $bm) {
+	margin-top: $val;
+	margin-bottom: $val;
+	&:first-child {
+		margin-top: 0;
+	}
+	&:last-child {
+		margin-bottom: 0;
+	}
+}
+@mixin heading() {
+	@include font-heavy;
+	font-size: 50px;
+	line-height: 1;
+	margin-bottom: 30px;
+}
+
+body {
+	background: url('../img/landing_preview.jpg') center top no-repeat;
+	min-height: 5708px;
+	@include font-regular;
+	color: black;
+	font-size: 18px;
+	line-height: 1.4;
+}
+
+.layout {
+	width: 1280px;
+	margin-left: auto;
+	margin-right: auto;
+	position: relative;
+	&__center {
+		margin-left: 90px;
+		margin-right: 90px;
+	}
+	&__columns {
+		@include columnizerParent;
+	}
+	&__overflow {
+		margin-left: -90px;
+		margin-right: -90px;
+	}
+	&__overflow-left {
+		margin-left: -90px;
+	}
+	&__overflow-right {
+		margin-right: -90px;
+	}
+}
+
+.header {
+	height: $header-height;
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+
+	background: rgba(5,24,68,0.76);
+	color: white;
+
+	&__logo {
+		@include columnizer(2);
+		padding-top: 10px;
+	}
+	&__logo-img {
+		width: 101px;
+	}
+	&__title {
+		@include columnizer(5);
+		@include font-medium;
+		text-transform: uppercase;
+		letter-spacing: 3px;
+		font-size: 24px;
+		line-height: 1.15;
+		padding-top: 20px;
+	}
+	&__phone {
+		@include columnizer(2.5);
+		@include font-medium;
+		font-size: 24px;
+		line-height: 1.15;
+		padding-top: 20px;
+	}
+	&__sponsor {
+		@include columnizer(2.5);
+		text-align: right;
+		height: $header-height;
+		background: url('../img/pinkovsport_logo.png') right center no-repeat;
+		background-size: 178px 34px;
+		span {
+			display: none;
+		}
+	}
+}
+
+.intro {
+	height: 884px;
+	background: url('../img/intro_bg.jpg') center center no-repeat;
+	background-size: cover;
+	@media #{$media-retina} {
+		background-image: url('../img/intro_bg@2x.jpg');
+	}
+
+	&__title {
+		@include columnizerOffset(7);
+		@include font-heavy;
+		font-size: 66px;
+		line-height: 1.15;
+		letter-spacing: 1.5px;
+		margin-top: 200px;
+		color: black;
+	}
+}
+
+.features {
+	padding-top: 75px;
+	background: url('../img/bg-poly1.svg') 0% 100% no-repeat;
+	background-size: 64%;
+	min-height: 820px;
+	&__main {
+		@include columnizer(6);
+	}
+	&__aside {
+		@include columnizer(5);
+		@include columnizerOffset(1);
+	}
+	&__heading {
+		@include font-medium;
+		font-size: 38px;
+		line-height: 1.15;
+		color: #0060cc;
+		margin-right: -20px;
+	}
+	&__list {
+		list-style: none;
+		padding-left: 0;
+		margin-top: 45px;
+		margin-right: -45px;
+	}
+	&__item {
+		@include clearfix;
+		@include margin(35px);
+	}
+	&__about {
+		font-size: 22px;
+		line-height: 1.9;
+	}
+	&__wow {
+		@include font-heavy;
+		font-size: 54px;
+		line-height: 1.05;
+		margin-top: 68px;
+		width: 60%;
+	}
+	&__icon {
+		float: left;
+		width: 70px;
+		margin-right: 15px;
+		min-height: 70px;
+		padding-top: 4px;
+		img {
+			width: 100%;
+		}
+	}
+	&__title {
+		font-size: 28px;
+		line-height: 1.15;
+		margin-bottom: 10px;
+	}
+	&__text {
+		overflow-x: hidden;
+	}
+	&__button {
+		margin-top: 65px;
+	}
+}
+
+.button {
+	display: inline-block;
+	color: $color-red;
+	@include font-medium;
+	font-size: 22px;
+	line-height: 1;
+	text-decoration: none;
+	border: 2px solid $color-red;
+	padding: 18px 22px;
+}
+
+.feedback {
+	background: url('../img/bg-trophy.jpg') 85% 0% no-repeat;
+	margin-top: -40px;
+	&__main {
+		@include columnizer(7);
+		padding-top: 78px;
+	}
+	&__heading {
+		@include heading;
+		margin-bottom: 30px;
+	}
+	&__list {
+		list-style: none;
+		padding-left: 0;
+	}
+	&__item {
+		@include margin(45px);
+	}
+	&__title {
+		@include font-medium;
+		font-size: 24px;
+		line-height: 1.15;
+	}
+	&__text {
+		font-style: italic;
+		line-height: 1.6;
+		margin-top: 35px;
+		margin-left: -25px;
+		margin-right: 0;
+		padding: 0px 25px 15px 25px;
+		position: relative;
+		background: url('../img/speech-bubble.svg') left bottom no-repeat;
+		background-size: 100%;
+		&:before {
+			content: '';
+			position: absolute;
+			height: 35px;
+			left: 0;
+			right: 0;
+			top: -35px;
+			background: url('../img/speech-bubble.svg') left top no-repeat;
+			background-size: 100%;
+		}
+	}
+}
+
+.gallery {
+	@include margin(60px);
+	&__list {
+		height: 660px;
+		overflow-y: hidden;
+	}
+	&__item {
+		display: block;
+		height: 660px;
+		margin-left: 15px;
+		margin-right: 15px;
+		opacity: 0.5;
+		&.slick-active {
+			opacity: 1;
+		}
+	}
+	&__next,
+	&__prev {
+		width: 48px;
+		height: 48px;
+		position: absolute;
+		top: 50%;
+		margin-top: -24px;
+		z-index: 10;
+		cursor: pointer;
+	}
+	&__next {
+		right: 0;
+		background: white url('../img/gallery-next.svg') 50% 50% no-repeat;
+		background-size: 50%;
+	}
+	&__prev {
+		left: 0;
+		background: white url('../img/gallery-prev.svg') 50% 50% no-repeat;
+		background-size: 50%;
+	}
+}
+
+.about {
+	@include margin(75px);
+	font-size: 22px;
+	line-height: 1.9;
+	&__left,
+	&__right {
+		@include columnizer(6);
+	}
+}
+
+.couches {
+	@include margin(90px);
+	min-height: 685px;
+	position: relative;
+	&__heading {
+		@include heading;
+		text-align: center;
+	}
+	&__title {
+		@include font-medium;
+		font-size: 28px;
+		margin-bottom: 20px;
+		line-height: 1;
+	}
+	&__item {
+		position: absolute;
+		box-sizing: border-box;
+		&.is-first {
+			left: -10px;
+			width: 500px;
+			height: 501px;
+			top: -30px;
+			padding-top: 115px;
+			padding-left: 100px;
+			padding-right: 50px;
+			background: url('../img/couch1.png') left top no-repeat;
+		}
+		&.is-second {
+			left: 50%;
+			top: 170px;
+			margin-left: -240px;
+			width: 486px;
+			height: 488px;
+			padding-top: 100px;
+			padding-left: 80px;
+			padding-right: 50px;
+			background: url('../img/couch2.png') left top no-repeat;
+		}
+		&.is-third {
+			right: -20px;
+			top: -35px;
+			width: 489px;
+			height: 489px;
+			padding-top: 130px;
+			padding-left: 40px;
+			padding-right: 200px;
+			background: url('../img/couch3.png') left top no-repeat;
+		}
+	}
+	&__button {
+		margin-top: 480px;
+	}
+}
+
+.places {
+	@include margin(80px);
+	&__map {
+		@include columnizer(7);
+	}
+	&__map-container {
+		min-height: 590px;
+		position: relative;
+	}
+	#graymap {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+    }
+	&__description {
+		@include columnizer(5);
+	}
+	&__heading {
+		@include heading;
+		margin-bottom: 45px;
+	}
+	&__item {
+		@include margin(30px);
+	}
+	&__label {
+		float: left;
+		width: 40px;
+		height: 40px;
+		background: $color-red;
+		@include font-medium;
+		font-size: 26px;
+		line-height: 40px;
+		color: white;
+		text-align: center;
+		margin-right: 20px;
+		&.is-first {
+			background: $color-blue;
+		}
+		&.is-second {
+			background: $color-red;
+		}
+		&.is-third {
+			background: $color-green;
+		}
+		&.is-fourth {
+			background: $color-orange;
+		}
+		&.is-wait {
+			background: white url('../img/icon-wait.svg') center center no-repeat;
+			background-size: 20px 20px;
+			border: 1px solid #b2b2b2;
+			overflow: hidden;
+			text-indent: 100%;
+		}
+	}
+	&__title {
+		@include font-medium;
+		font-size: 24px;
+		line-height: 1.25;
+		margin-bottom: 10px;
+	}
+	&__text {
+		margin-left: 60px;
+		font-size: 20px;
+		line-height: 1.3;
+	}
+	&__item.is-under-construction {
+		.places__text span {
+			background: #ffea00;
+		}
+	}
+}

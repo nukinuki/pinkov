@@ -1,0 +1,121 @@
+extends _layouts/home
+
+block content
+	.layout
+		header.header
+			.layout__center
+				.layout__columns
+					.header__logo
+						img.header__logo-img(src="/img/pinkov_logo.png")
+					.header__title Детская футбольная школа
+					.header__phone +7 (495) 787-06-71
+					.header__sponsor
+						span PinkovSportsProjects
+		section.intro
+			.layout__center
+				.layout__columns
+					.intro__title Воспитываем будущих чемпионов!
+		section.features
+			.layout__center
+				.layout__columns
+					.features__main
+						.features__heading Pinkov Football Academy — это
+						ul.features__list
+							li.features__item
+								.features__icon
+									img.icon-feature1(src="/img/icon-feature1.svg")
+								.features__title Квалифицированные тренеры
+								.features__text Все тренеры проходят тщательную подготовку и имеют большой тренировочный опыт.
+							li.features__item
+								.features__icon
+									img.icon-feature2(src="/img/icon-feature2.svg")
+								.features__title Уникальные методики тренировки
+								.features__text Уникальный комплекс упражнений, разработанный ведущими профессионалами в сфере спорта.
+							li.features__item
+								.features__icon
+									img.icon-feature3(src="/img/icon-feature3.svg")
+								.features__title Максимум внимания вашему ребёнку
+								.features__text Нам важно, чтобы все наши ученики получали максимум внимания со стороны тренеров, поэтому у нас есть индивидуальные тренировки для взрослых и детей.
+							li.features__item
+								.features__icon.icon-feature
+									img.icon-feature4(src="/img/icon-feature4.svg")
+								.features__title Площадки с удобным покрытием
+								.features__text Все футбольные поля, где проходят наши тренировки, отличаются удобным покрытием.
+					.features__aside
+						.features__about Мы создаем из маленьких футболистов будущих чемпионов, делая ставку не только на спортивную подготовку, но и на морально-волевые качества. Ведь спортивная форма — это только половина успеха. Вторая половина — настрой чемпиона.
+						.features__wow Первое занятие бесплатно!
+						.features__button
+							a.button(href="#form") Записаться на занятие
+		section.feedback
+			.layout__center
+				.layout__columns
+					.feedback__main
+						.feedback__heading Отзывы
+						ul.feedback__list
+							li.feedback__item
+								.feedback__title Шумакова Наталья (Илья, 12 лет)
+								.feedback__text Занимались у тренера Димы. Замечательный человек! Уже через 2 месяца Илья уверенно забивал голы с ребятами во дворе. Я была на нескольких занятиях и видела, что дети просто счастливы, несмотря на строгие требования тренера! Академия Пинькова — отличная школа! Смело сдавайте сюда своего оболтуса, из него здесь сдалают человека :)
+							li.feedback__item
+								.feedback__title Баталов Дмитрий (Саша, 8 лет)
+								.feedback__text Академия что надо! Мой Сашка нашёл общий язык с детьми в первый же день, хотя он не особо общительный. Бежит теперь на каждую тренировку, как он к приставке своей не бегал — это говорит о многом! Игорь — хороший мужик, знает где похвалить, а где поднажать, чтоб не расслаблялись. Если честно, хочу сам сюда записаться, тем более, что скоро откроют занятия для взрослых.
+		section.gallery
+			.gallery__list.is-slider
+				each img in ['_KU8ueQzJsc.jpg', '8FUi6OqBFdM.jpg', 'fAQoZn7hipI.jpg', 'IMG_0035.JPG', 'IMG_0044.JPG', 'IMG_0081.JPG', 'IMG_7398.JPG', 'IMG_7773.JPG', 'IMG_9492.JPG', 'IMG_9524.JPG', 'IMG_9532.JPG', 'IMG_9608.JPG', 'jQ69QPrjIgk.jpg']
+					img.gallery__item(src="/img/gallery/" + img)
+		section.about
+			.layout__center
+				.layout__columns
+					.about__left Мы понимаем, что для родителей очень важны безопасность и комфорт их детей, поэтому команда наших тренеров создана из высококвалифицированных специалистов, которые будут заботиться о вашем ребенке и&nbsp;следить за его успехами.
+					.about__right Мы разработали уникальные методики эффективного тренинга и используем их в работе с детьми. Каждый наш ученик на тренировках проходит комплекс упражнений и получает максимум внимания со стороны тренеров.
+		section.couches
+			.layout__center
+				.couches__heading Наши тренеры
+				.couches__list
+					.couches__item.is-first
+						.couches__title Дмитрий Чекулов
+						.couches__text Мастер спорта, марафонец, педагог. Окончил Энский Педагогический Университет, занимается с детьми более 5 лет
+					.couches__item.is-second
+						.couches__title Дэвид Бекхэм
+						.couches__text Звезда спорта. Теперь тренер нашей нашей школы. Слова излишни.
+					.couches__item.is-third
+						.couches__title Игорь Вратарёв
+						.couches__text Действующий игрок команды «Спартак». Всё, за что берётся, всё ему даётся, занимается с детьми более 5&nbsp;лет
+				.couches__button
+					a.button(href="#form") Записаться на занятие
+		section.places
+			.layout__center
+				.layout__columns
+					.places__map
+						.layout__overflow-left
+							.places__map-container
+								include _partials/map.html
+								| &nbsp;
+					.places__description
+						.places__heading Наши площадки
+						.places__list
+							.places__item
+								.places__label.is-first 1
+								.places__title м. Ул. 1905 года
+								.places__text.
+									Пресненский вал, 15 стр. 1<br />
+									Тел.: +7 (495) 787-06-71<br />
+									с 10:00 до 22:00<br />
+									Выходной: воскресенье
+							.places__item
+								.places__label.is-second 2
+								.places__title м. Юго-западная
+								.places__text.
+									Пресненский вал, 15 стр. 1<br />
+									Тел.: +7 (495) 787-06-71<br />
+									с 10:00 до 22:00<br />
+									Выходной: воскресенье
+							.places__item.is-under-construction
+								.places__label.is-wait 3
+								.places__title г. Котельники, СК&nbsp;«Дружба»
+								.places__text
+									span.
+										Открытие в сентябре!
+
+
+block body_end
+	script(type="text/javascript" src="/js/script.js")

@@ -116,9 +116,13 @@
     }
 
     function init() {
+        var isMobile = false;
+        if($(window).width() < 768){
+            isMobile = true;
+        }
         var mapOptions = {
             center: new google.maps.LatLng(55.7399609,37.5762557),
-            zoom: 10,
+            zoom: isMobile ? 9 : 10,
             gestureHandling: 'auto',
             fullscreenControl: false,
             zoomControl: true,
@@ -141,7 +145,10 @@
         var mapElement = document.getElementById('graymap');
         var map = new google.maps.Map(mapElement, mapOptions);
         var locations = [
-            {"title":"Метро «Улица 1905 года»","address":"Метро «Улица 1905 года», улица Пресненский вал 15, стр.1 (Летом парк «Красная Пресня)","desc":"","tel":"","int_tel":"","email":"","web":"","web_formatted":"","open":"","time":"","lat":55.77051669999999,"lng":37.566365099999985,"vicinity":"ul. Presnenskiy Val, 15, стр. 1, Moscow, Russia, 123557","open_hours":"","marker":"/img/map-pin-blue.svg","iw":{"address":true,"desc":true,"email":true,"enable":false,"int_tel":true,"open":true,"open_hours":true,"photo":true,"tel":true,"title":true,"web":true}},{"title":"Метро Юго-Западная","address":"Метро «Юго-Западная», проспект Вернадского, 78, стр. 5","desc":"","tel":"","int_tel":"","email":"","web":"","web_formatted":"","open":"","time":"","lat":55.66838600000001,"lng":37.48416789999999,"vicinity":"pr. Vernadskogo, 78с5, Moskva, Russia, 119454","open_hours":"","marker":"/img/map-pin-red.svg","iw":{"address":true,"desc":true,"email":true,"enable":false,"int_tel":true,"open":true,"open_hours":true,"photo":true,"tel":true,"title":true,"web":true}},{"title":"г. Котельники, СК «Дружба»","address":"Московская область, г. Котельники, мкр-н Ковровый, 33. Спортклуб «Дружба»","desc":"","tel":"","int_tel":"","email":"","web":"","web_formatted":"","open":"","time":"","lat":55.660883,"lng":37.86915699999997,"vicinity":"33, Kotelniki, Moskovskaya oblast', Russia, 140054","open_hours":"","marker":"/img/map-pin-none.svg","iw":{"address":true,"desc":true,"email":true,"enable":false,"int_tel":true,"open":true,"open_hours":true,"photo":true,"tel":true,"title":true,"web":true}}
+            {"title":"Метро «Улица 1905 года»","address":"Метро «Улица 1905 года», улица Пресненский вал 15, стр.1 (Летом парк «Красная Пресня)","desc":"","tel":"","int_tel":"","email":"","web":"","web_formatted":"","open":"","time":"","lat":55.77051669999999,"lng":37.566365099999985,"vicinity":"ul. Presnenskiy Val, 15, стр. 1, Moscow, Russia, 123557","open_hours":"","marker":"/img/map-pin-blue.svg","iw":{"address":true,"desc":true,"email":true,"enable":false,"int_tel":true,"open":true,"open_hours":true,"photo":true,"tel":true,"title":true,"web":true}},
+            {"title":"Метро Юго-Западная","address":"Метро «Юго-Западная», проспект Вернадского, 78, стр. 5","desc":"","tel":"","int_tel":"","email":"","web":"","web_formatted":"","open":"","time":"","lat":55.66838600000001,"lng":37.48416789999999,"vicinity":"pr. Vernadskogo, 78с5, Moskva, Russia, 119454","open_hours":"","marker":"/img/map-pin-red.svg","iw":{"address":true,"desc":true,"email":true,"enable":false,"int_tel":true,"open":true,"open_hours":true,"photo":true,"tel":true,"title":true,"web":true}},
+            {"title":"Метро Водный стадион","address":"Метро «Водный стадион», Авангардная ул., д. 5","desc":"","tel":"","int_tel":"","email":"","web":"","web_formatted":"","open":"","time":"","lat":55.8449299,"lng":37.4877698,"vicinity":"Avangardnaya ul.,5, Moskva, 125493","open_hours":"","marker":"/img/map-pin-green.svg","iw":{"address":true,"desc":true,"email":true,"enable":false,"int_tel":true,"open":true,"open_hours":true,"photo":true,"tel":true,"title":true,"web":true}},
+            {"title":"г. Котельники, СК «Дружба»","address":"Московская область, г. Котельники, мкр-н Ковровый, 33. Спортклуб «Дружба»","desc":"","tel":"","int_tel":"","email":"","web":"","web_formatted":"","open":"","time":"","lat":55.660883,"lng":37.86915699999997,"vicinity":"33, Kotelniki, Moskovskaya oblast', Russia, 140054","open_hours":"","marker":"/img/map-pin-none.svg","iw":{"address":true,"desc":true,"email":true,"enable":false,"int_tel":true,"open":true,"open_hours":true,"photo":true,"tel":true,"title":true,"web":true}}
                 // there's also map-pin-green.svg (3) and map-pin-orange.svg (4) 
         ];
 

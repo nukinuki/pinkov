@@ -8,14 +8,23 @@ block content
 					.header__logo
 						img.header__logo-img(src="/img/pinkov_logo.png")
 					.header__title Детская футбольная школа
-					.header__phone +7 (495) 787-06-71
-					.header__sponsor
-						span PinkovSportsProjects
-		section.intro
+					.header__social.social
+						.social__item.is-icon-only
+							a.is-fb(href="//www.facebook.com/pinkov.academy", target="_blank")
+								span pinkov.academy
+						.social__item.is-icon-only
+							a.is-vk(href="//vk.com/pinkov.academy", target="_blank")
+								span pinkov.academy
+						.social__item.is-icon-only
+							a.is-instagram(href="//www.instagram.com/pinkov_academy/", target="_blank")
+								span pinkov_academy
+					.header__phone <a href="tel:+7495787067"><span id="#phoneheader">+7 (495) 787-06-71</span></a>
+		section.intro.is-var2
+			.intro__bg(data-top='transform: translateY(0px)', data-top-bottom='transform: translateY(200px)')
 			.layout__center
 				.layout__columns
 					.intro__title Воспитываем будущих чемпионов!
-		section.features
+		section.features(data-bottom-top='background-size: 54%', data-top-bottom='background-size: 74%')
 			.layout__center
 				.layout__columns
 					.features__main
@@ -53,14 +62,15 @@ block content
 						.feedback__heading Отзывы
 						ul.feedback__list
 							li.feedback__item
-								.feedback__title Шумакова Наталья (Илья, 12 лет)
-								.feedback__text Занимались у тренера Димы. Замечательный человек! Уже через 2 месяца Илья уверенно забивал голы с ребятами во дворе. Я была на нескольких занятиях и видела, что дети просто счастливы, несмотря на строгие требования тренера! Академия Пинькова — отличная школа! Смело сдавайте сюда своего оболтуса, из него здесь сдалают человека :)
+								.feedback__title Наталья Белецкая (Степа, 7 лет)
+								.feedback__text О школе Pinkov Academy я была наслышана от своей знакомой, которая записала туда своего сына. Я не была уверена, что это спорт для моего Степы. Рассеянное внимание, медлительность и даже какая-то мечтательность – эти качества явно не для футбола, скорее, что-то связанное с рисованием, думала я. Муж настоял на том, чтобы сводила попробовать, к тому же первый урок бесплатно.  Удивительно, как Степа раскрылся на занятии: бегал, прыгал, пробовал перехватывать мяч, был сконцентрирован на тренировке.
 							li.feedback__item
-								.feedback__title Баталов Дмитрий (Саша, 8 лет)
-								.feedback__text Академия что надо! Мой Сашка нашёл общий язык с детьми в первый же день, хотя он не особо общительный. Бежит теперь на каждую тренировку, как он к приставке своей не бегал — это говорит о многом! Игорь — хороший мужик, знает где похвалить, а где поднажать, чтоб не расслаблялись. Если честно, хочу сам сюда записаться, тем более, что скоро откроют занятия для взрослых.
+								.feedback__title Карина Малахова (Артем, 6 лет)
+								.feedback__text Мы перепробовали несколько школ футбола, но по разным причинам нам не удавалось «закрепиться» ни в одной: то переезд, то отношения с тренерами. Мы пришли в Pinkov Academy почти под конец сезона. Не думала, что Артему в ней так понравится. Да и прогресс налицо, а сколько положительных эмоций за одну только тренировку! Спасибо тренеру Смирнову Илье Сергеевичу. Он – настоящий друг для всех детей. Возится с ними, обучает, к каждому подходит и объясняет. Я очень рада, что любовь к спорту у сына растет вместе с ним.
+			.feedback__bg
 		section.gallery
 			.gallery__list.is-slider
-				each img in ['_KU8ueQzJsc.jpg', '8FUi6OqBFdM.jpg', 'fAQoZn7hipI.jpg', 'IMG_0035.JPG', 'IMG_0044.JPG', 'IMG_0081.JPG', 'IMG_7398.JPG', 'IMG_7773.JPG', 'IMG_9492.JPG', 'IMG_9524.JPG', 'IMG_9532.JPG', 'IMG_9608.JPG', 'jQ69QPrjIgk.jpg']
+				each img in ['IMG_7773.JPG', 'IMG_0035.JPG', 'IMG_0044.JPG', 'IMG_0081.JPG', 'IMG_7398.JPG', 'IMG_9492.JPG', 'IMG_9524.JPG', 'IMG_9532.JPG', 'IMG_9608.JPG']
 					img.gallery__item(src="/img/gallery/" + img)
 		section.about
 			.layout__center
@@ -71,15 +81,14 @@ block content
 			.layout__center
 				.couches__heading Наши тренеры
 				.couches__list
-					.couches__item.is-first
-						.couches__title Дмитрий Чекулов
-						.couches__text Мастер спорта, марафонец, педагог. Окончил Энский Педагогический Университет, занимается с детьми более 5 лет
-					.couches__item.is-second
-						.couches__title Дэвид Бекхэм
-						.couches__text Звезда спорта. Теперь тренер нашей нашей школы. Слова излишни.
-					.couches__item.is-third
-						.couches__title Игорь Вратарёв
-						.couches__text Действующий игрок команды «Спартак». Всё, за что берётся, всё ему даётся, занимается с детьми более 5&nbsp;лет
+					.couches__item.is-first(data-bottom-top='margin-left: -100px', data-top-bottom='margin-left: 20px')
+						.couches__image
+						.couches__title Илья Смирнов
+						.couches__text Выпускник ДЮСШ Спартак Москва. Тренерский опыт с детьми и взрослыми с 2013 года. Любимец у маленьких чемпионов.
+					.couches__item.is-third(data-bottom-top='margin-right: -60px', data-top-bottom='margin-right: 20px')
+						.couches__image
+						.couches__title Валерий Наликашвили
+						.couches__text Выпускник ДЮСШ Металлург Запорожье. Выступал за команды «Металлург-2», МФК Николаев, ФК «Энергия». Действующий тренер команды НМИРЦ Герцино (Институт Онкологии).
 				.couches__button
 					a.button(href="#form") Записаться на занятие
 		section.places
@@ -109,13 +118,93 @@ block content
 									Тел.: +7 (495) 787-06-71<br />
 									с 10:00 до 22:00<br />
 									Выходной: воскресенье
+							.places__item
+								.places__label.is-third 3
+								.places__title м. Водный стадион
+								.places__text.
+									Авангардная ул, 5<br />
+									Тел.: +7 (495) 787-06-71<br />
+									Среда с 19 до 20,<br />
+									суббота с 11 до 12<br />
 							.places__item.is-under-construction
 								.places__label.is-wait 3
 								.places__title г. Котельники, СК&nbsp;«Дружба»
 								.places__text
 									span.
 										Открытие в сентябре!
-
+		section.form#form
+			.layout__center
+				.form__heading Записаться на занятие
+				.form__box
+					form#subscribe
+						.layout__columns
+							.form__main
+								.form__field
+									.form__title Имя:
+									.form__input
+										input(type="text", name="username", value="", tabindex=1)
+								.form__field
+									.form__title Телефон:
+									.form__input
+										input(type="text", name="phone", value="", tabindex=2, data-mask="+7 (999) 999-99-99")
+								.form__field
+									.form__title Площадка:
+									.form__input
+										select(name="place")
+											option(value="м. Улица 1905 года") м. Улица 1905 года
+											option(value="м. Юго-западная") м. Юго-западная
+								.form__field
+									.form__title.is-empty &nbsp;
+									.form__input
+										.form__disclaimer Нажимая на кнопку «Записаться», я&nbsp;подтверждаю, что ознакомлен с&nbsp;<a href="#legal" class="js-modal">условиями сайта</a> и&nbsp;даю согласие на&nbsp;обработку предоставленных данных.
+								.form__field.is-buttons
+									.form__title.is-empty &nbsp;
+									.form__input
+										a.button(href="javascript:void(0)", class="js-submit") Записаться на&nbsp;занятие
+							.form__aside
+								.form__aside-items
+									.form__aside-item
+										p.
+											<strong>Стоимость обучения</strong><br />
+											5500 руб. в месяц<br />
+											<strong>Первое занятие бесплатно</strong>
+									.form__aside-item
+										p.
+											Занятия проводятся 2 раза в неделю.
+									.form__aside-item
+										p.
+											<a href="#training" class="js-modal">Программа занятий</a>
+									.form__aside-item
+										p.
+											Остались вопросы?<br />
+											Звоните: <span id="#phoneform">+7 (495) 787-06-71</span>
+							.form__complete.content-area
+								h3 Ваша заявка принята!
+								p Спасибо, за проявленный интерес. Мы свяжемся с вами в ближайшее время!
+		footer.footer
+			.layout__center
+				.footer__sponsor
+					span PinkovSportsProjects
+				.footer__copyright © 2017 Pinkov Football Academy
+				.footer__email <a href="mailto:info@pinkov.ru">info@pinkov.ru</a>
+				.footer__social.social
+					.social__item.is-icon-only
+						a.is-fb(href="//www.facebook.com/pinkov.academy", target="_blank")
+							span pinkov.academy
+					.social__item
+						a.is-vk(href="//vk.com/pinkov.academy", target="_blank")
+							span pinkov.academy
+					.social__item
+						a.is-instagram(href="//www.instagram.com/pinkov_academy/", target="_blank")
+							span pinkov_academy
+				//.footer__phone <span id="#phoneheader">+7 (495) 787-06-71</span>
+		.layout__modals(style="display: none")
+			| <!--noindex-->
+			#training.layout__modal.content-area
+				include _partials/training.html
+			#legal.layout__modal.content-area
+				include _partials/legal.html
+			| <!--/noindex-->
 
 block body_end
 	script(type="text/javascript" src="/js/script.js")

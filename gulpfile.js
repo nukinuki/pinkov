@@ -28,7 +28,7 @@ gulp.task('pug', function () {
     .pipe(data(function (file) {
       return require(paths.data + path.basename(file.path) + '.json');
     }))
-    .pipe(pug())
+    .pipe(pug({pretty: true}))
     .on('error', function (err) {
       process.stderr.write(err.message + '\n');
       this.emit('end');
@@ -68,7 +68,7 @@ gulp.task('sass', function () {
   return gulp.src(paths.sass + '*.scss')
     .pipe(sass({
       includePaths: [paths.sass],
-      outputStyle: 'compressed'
+      outputStyle: 'expanded'
     }))
     .on('error', sass.logError)
     .pipe(prefix(['last 15 versions', '> 1%', 'ie 8', 'ie 7'], {
